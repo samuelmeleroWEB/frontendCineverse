@@ -6,7 +6,7 @@ import styles from "./FormMovies.module.css";
 
 type ImageMode = "url" | "file";
 
-export function AdminFormMovies() {
+export function FormMovies() {
   const location = useLocation();
   const movieToEdit = (location.state as any)?.movie;
 

@@ -2,7 +2,7 @@ import {  useState } from "react";
 import styles from "./FormRooms.module.css";
 import { addRoom } from "../../../services/rooms.services";
 
-export function AdminFormRooms() {
+export function FormRooms() {
   const [form, setForm] = useState({
  
     name: "",

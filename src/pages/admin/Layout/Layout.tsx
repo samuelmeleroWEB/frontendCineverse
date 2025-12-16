@@ -1,10 +1,10 @@
-import React from "react";
+
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../../store/auth.store";
 import styles from "./Layout.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 
-export const AdminLayout: React.FC = () => {
+export const Layout = () => {
   const { user, logout } = useAuthStore();
   const navigate = useNavigate();
 
