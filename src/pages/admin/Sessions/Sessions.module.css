@@ -1,0 +1,171 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.addButton {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  color: #e0f2fe;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.tableWrapper {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+th,
+td {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+}
+
+th {
+  font-weight: 500;
+  color: #9ca3af;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+tbody tr:hover {
+  background: rgba(30, 64, 175, 0.45);
+}
+
+.actionsCell {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.actionBtn,
+.actionBtnDanger {
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  border: none;
+  cursor: pointer;
+}
+
+.actionBtn {
+  background: rgba(59, 130, 246, 0.2);
+  color: #bfdbfe;
+}
+
+.actionBtnDanger {
+  background: rgba(248, 113, 113, 0.2);
+  color: #fecaca;
+}
+/* === BUSCADOR DE SESIONES === */
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+/* Input de búsqueda */
+.searchInput {
+  min-width: 250px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #0f0f0f;
+  color: #f5f5f5;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput::placeholder {
+  color: #888;
+}
+
+.searchInput:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.25);
+}
+
+/* Botón Buscar */
+.searchButton {
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(135deg, #5a2cff70, #00c8ff8a);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 198, 255, 0.4);
+}
+
+.searchButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 198, 255, 0.4);
+}
+
+/* Botón limpiar (X) */
+.clearButton {
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: transparent;
+  color: #f5f5f5;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.clearButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .searchForm {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .searchInput {
+    min-width: 160px;
+    flex: 1;
+  }
+}
