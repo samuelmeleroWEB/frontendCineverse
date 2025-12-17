@@ -1,0 +1,470 @@
+/* =========================================================
+   NAVBAR (Base)
+========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  gap: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 26px;
+
+  background: rgba(5, 8, 20, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: background 0.25s ease, padding 0.25s ease;
+}
+
+.navbarScrolled {
+  background: rgba(5, 8, 20, 0.92);
+  padding: 12px 22px;
+}
+
+.brand {
+  text-decoration: none;
+  color: white;
+}
+
+.titulologo {
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  margin: 0;
+  color: #00bfff;
+  text-shadow: 0 0 12px rgba(0, 191, 255, 0.4);
+}
+
+/* =========================================================
+   LINKS (Desktop)
+========================================================= */
+.navLinks {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  margin-left: 600px;
+}
+
+.enlaces {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0.92;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.enlaces:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   RIGHT ZONE
+========================================================= */
+.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Carrito */
+.cartLink {
+  position: relative;
+  color: white;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  font-size: 0.72rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #00bfff;
+  color: #050814;
+  font-weight: 800;
+}
+
+/* Desktop actions */
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botón login/register */
+.login {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 191, 255, 0.55);
+  background: rgba(0, 191, 255, 0.08);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+}
+
+.login:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 191, 255, 0.16);
+  border: 1px solid rgba(0, 191, 255, 0.9);
+}
+
+/* Botón usuario (desktop) */
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.userButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.userIcon {
+  color: #00bfff;
+}
+
+.userName {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   MOBILE ACTIONS (icons)
+========================================================= */
+.mobileActions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconBtn {
+  background: transparent;
+  border: 0;
+  color: white;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  padding: 7px;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.iconBtn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================
+   PANEL LATERAL (Nav & User)
+========================================================= */
+.panelOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  background: rgba(0, 0, 0, 0.58);
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 320px;
+
+  background: #050814;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.6);
+
+  padding: 18px 18px;
+  display: flex;
+  flex-direction: column;
+
+  animation: slideIn 0.22s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(14px);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.panelTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #00bfff;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.panelClose {
+  background: transparent;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.panelClose:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.panelNav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panelLink {
+  color: white;
+  text-decoration: none;
+  padding: 10px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  opacity: 0.92;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.panelLink:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* User header inside panel */
+.userMenuHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 10px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.userMenuHello {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.userMenuName {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: white;
+}
+
+/* Logout */
+.logoutBtn {
+  margin-top: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 191, 255, 0.8);
+  background: rgba(0, 191, 255, 0.08);
+  color: white;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background: rgba(0, 191, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   MODAL (Login/Register)
+========================================================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2600;
+  background: rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  background: #050814;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.closeBtn:hover {
+  opacity: 1;
+}
+
+.modalTitle {
+  margin: 0 0 14px 0;
+  color: #00bfff;
+  letter-spacing: 0.6px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form input {
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  outline: none;
+}
+
+.form input:focus {
+  border-color: rgba(0, 191, 255, 0.8);
+  box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.12);
+}
+
+.submitBtn {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 191, 255, 0.8);
+  background: rgba(0, 191, 255, 0.14);
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.submitBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 191, 255, 0.22);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error {
+  margin: 12px 0 0 0;
+  color: #ff5a7a;
+  font-weight: 700;
+}
+
+.modalLinks {
+  margin-top: 14px;
+}
+
+.switchText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.switchBtn {
+  background: transparent;
+  border: 0;
+  color: #00bfff;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 0;
+}
+
+.switchBtn:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .mobileActions {
+    display: flex;
+  }
+
+  .titulologo {
+    font-size: 1.15rem;
+  }
+
+  .navbar {
+    padding: 14px 16px;
+  }
+
+  .navbarScrolled {
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    width: 84%;
+  }
+}

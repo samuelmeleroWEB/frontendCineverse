@@ -1,0 +1,653 @@
+.homePage {
+  padding-top: 70px;          /* deja hueco para el navbar fijo */
+  padding-inline: 1.5rem;     /* margen lateral base */
+}
+.imgHome {
+    margin-top: 90px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain; /* Recorta la imagen inteligentemente para rellenar sin deformar */
+  border-radius: 20px; /* Para mantener las esquinas redondas */
+  
+}
+.tittleImg {
+  font-family: "MiFuenteCine", sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: left;
+  /* responsive */
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  max-width: 15ch;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .tittleImg {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tittleImg {
+    font-size: 2rem;
+  }
+}
+.boxImgOffer {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.tittleFechas {
+ /* 1. Tipografía y Color */
+  font-family: 'Montserrat', sans-serif; /* Usa tu fuente principal */
+  color: #f0f0f0; /* Un gris claro para los días que NO están seleccionados */
+  font-size: 14px;
+  font-weight: 600; /* Un poco de negrita para que se lea bien */
+  text-transform: uppercase; /* LUN, MAR, MIÉ... queda más limpio */
+
+  /* 2. Layout y Espaciado */
+  text-align: center; /* Centra el texto horizontalmente */
+  padding: 15px 5px;  /* Dale aire por arriba y abajo */
+  cursor: pointer;    /* Que salga la manita al pasar el ratón */
+  
+  /* 3. Preparar la animación */
+  transition: all 0.3s ease; /* Suaviza los cambios de color */
+  border-bottom: 3px solid transparent; /* Preparamos una línea invisible debajo */
+}
+.tittleFechas:hover {
+  color: white;       /* El texto se vuelve blanco brillante */
+  /* Opcional: añade un pequeño brillo */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+.botonImg {
+  background: linear-gradient(135deg, #5b2cff, #00c6ff);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(91, 44, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .botonImg {
+    display: block;
+    margin: 0 auto 1.5rem;
+  }
+}
+
+.botonImg:hover {
+ transform: scale(1.05);
+  background: linear-gradient(135deg, #00c6ff, #5b2cff);
+  box-shadow: 0 0 25px rgba(0, 198, 255, 0.8);
+}
+
+.botonImg:active {
+  transform: scale(0.98);
+}
+
+.listaPeliculas {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.peliItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(0, 191, 255, 0.35);
+}
+
+.peliTitulo {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.peliInfo {
+  font-size: 0.8rem;
+  color: #b0b0b0;
+}
+
+.peliPoster {
+  width: 45px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.nav-btn {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, #2bd5ff, #5b2cff);
+  border-radius: 50%;
+  border: none;
+  width: 52px;
+  height: 52px;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.8);
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn-prev {
+  left: -25px;   /* 👈 fuera de la imagen */
+}
+
+.nav-btn-next {
+  right: -25px;  /* 👈 fuera de la imagen */
+}
+
+/* En móvil las ocultamos */
+@media (max-width: 768px) {
+  .nav-btn {
+    display: none;
+  }
+}
+.mySwiper{
+  position: relative;
+}
+
+.swiper-nav-btns {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.swiperFechas {
+  
+  height: 60px;
+}
+.contenedorDia {
+  margin-top: 0.5rem;   /* antes 1rem */
+  display: flex;
+  justify-content: center;
+}
+.dailySchedule {
+  margin-top:0;  /* antes 0.25rem, puedes jugar entre 0.5–1rem */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;          /* si quieres todo más compacto, baja a 1.25rem */
+}
+
+.dailyScheduleHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0;
+}
+
+.dailyScheduleTitle {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.dailyScheduleSubtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #a0a0a0;
+}
+
+.emptyState {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: radial-gradient(circle at top left, #2a2a2a 0, #111 60%);
+  color: #d0d0d0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* GRID GENERAL DE PELÍCULAS */
+.moviesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1rem auto 3rem;
+  max-width: 1200px;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .moviesGrid {
+    padding: 0 0.75rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* CARD DE CADA PELÍCULA */
+.movieCard {
+  display: grid;
+  grid-template-columns: minmax(0, 150px) minmax(0, 1fr);
+  gap: 1.8rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, #252525 0, #111 55%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  transition: transform 180ms ease-out, box-shadow 180ms ease-out,
+    border-color 180ms ease-out, background 180ms ease-out;
+}
+
+.movieCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 255, 255, 0.08),
+    transparent 55%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease-out;
+}
+
+.movieCard:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.movieCard:hover::before {
+  opacity: 1;
+}
+
+/* POSTER */
+.moviePoster {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.8);
+}
+
+.moviePosterImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 250ms ease-out, filter 250ms ease-out;
+}
+
+.movieCard:hover .moviePosterImg {
+  transform: scale(1.06);
+  filter: brightness(1.08);
+}
+
+/* INFO PELÍCULA */
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.movieInfoHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.movieTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.movieDescription {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #cccccc;
+  max-height: 4.2em; /* ~3 líneas */
+  overflow: hidden;
+}
+
+/* CABECERA SESIONES */
+.sessionsHeader {
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.sessionsLabel {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #f5f5f5;
+}
+
+.sessionsHint {
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+/* GRID DE HORARIOS */
+.sessionsGrid {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* BOTÓN DE CADA SESIÓN */
+.sessionButton {
+  position: relative;
+  padding: 0.55rem 0.9rem;
+  border-radius: 99px;
+  border: 1px solid rgba(2, 2, 2, 0.22);
+  background: radial-gradient(circle at top left, #2fdaf8, #321daa);
+  background-size: 200% 200%;
+  color: #ffffff;
+  cursor: pointer;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  font-family: inherit;
+  transition: background-position 200ms ease-out, box-shadow 200ms ease-out,
+    transform 120ms ease-out, border-color 200ms ease-out;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.7);
+}
+
+.sessionButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.sessionButton:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+  border-color: rgba(7, 7, 7, 0.38);
+}
+
+.sessionButton:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.9);
+}
+
+.sessionTime {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.sessionRoom {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .movieCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .moviePoster {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+
+  .movieTitle {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .dailyScheduleTitle {
+    font-size: 1.4rem;
+  }
+
+  .movieCard {
+    padding: 1.1rem 1rem;
+  }
+
+  .sessionsGrid {
+    gap: 0.45rem;
+  }
+
+  .sessionButton {
+    padding: 0.5rem 0.75rem;
+  }
+}
+.mvpSkeleton {
+  padding: 2rem 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.mvpSkeletonHeader {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skeletonTitle {
+  height: 28px;
+  width: 50%;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #111827 0%,
+    #1f2937 50%,
+    #111827 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+}
+
+.skeletonButton {
+  height: 38px;
+  width: 140px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #111827 0%,
+    #1f2937 50%,
+    #111827 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+}
+
+.skeletonHeroWrapper {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 90px;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.skeletonHero {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #020617 0%,
+    #111827 50%,
+    #020617 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+}
+
+.loaderWrapper {
+  margin: 2.5rem 0 3rem;
+  min-height: 140px; /* reserva espacio */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: radial-gradient(
+    circle,
+    rgba(2, 6, 23, 0.25),
+    transparent 70%
+  );
+}
+/* === LOADER UIVERSE === */
+.loader {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  transform: translateX(-25px);
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  animation: rotate9 1s infinite cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.loader::before {
+  background-color: #ffffff;
+}
+
+.loader::after {
+  background-color: #000000;
+  animation-delay: .5s;
+}
+
+@keyframes rotate9 {
+  0%,100% {
+    left: 50px;
+  }
+
+  25% {
+    transform: scale(.3);
+  }
+
+  50% {
+    left: 0;
+  }
+
+  75% {
+    transform: scale(1);
+  }
+}
+
+
+.loaderText {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* opcional, por si no lo tenías */
+.mvpEmptySlide {
+  padding: 2rem 1.5rem 2.5rem;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .homePage {
+    padding-inline: 1rem;
+    padding-top: 60px;
+  }
+}
+@media (max-width: 900px) {
+  .movieCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .moviePoster {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+
+  .movieDescription {
+    max-height: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .dailyScheduleTitle {
+    font-size: 1.4rem;
+  }
+
+  .movieCard {
+    padding: 1.1rem 1rem;
+  }
+
+  .sessionsGrid {
+    gap: 0.45rem;
+  }
+
+  .sessionButton {
+    padding: 0.5rem 0.75rem;
+    width: 100%;               /* horarios a ancho completo en móvil */
+  }
+
+  .sessionButton {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieTitle {
+    font-size: 1.1rem;
+  }
+
+  .movieDescription {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 768px) {
+  .movieDescription {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieDescription {
+    font-size: 0.8rem;
+  }
+}

@@ -1,68 +1,138 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* Definimos la nueva fuente */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'MiFuenteCine';   /* Ponle el nombre que tú quieras usar después */
+  src: url('../src/assets/fonts/Cine-title.ttf') format('truetype'); /* LA RUTA DEBE SER EXACTA */
+  font-weight: normal;
+  font-style: normal;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+*{
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+background: #4a31a3;
+background: linear-gradient(0deg,rgba(74, 49, 163, 0.88) 0%, rgba(71, 40, 158, 1) 42%, rgba(24, 27, 31, 1) 96%, rgba(24, 27, 31, 1) 98%);
+
+background-size: cover;
+}
+/* En tu archivo index.css o App.css */
+
+/* Títulos impactantes */
+h1, h2, h3, h4,a,button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; /* Bold */
+}
+
+/* Texto general fácil de leer */
+body, p, span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; /* Normal */
+}
+
+/* Suponiendo que el navbar mide unos 72px de alto */
+.app-content {
+  padding-top: 42px;
+}
+
+/* Si en móvil el navbar es más alto puedes ajustar con media query */
+@media (max-width: 600px) {
+  .app-content {
+    padding-top: 80px;
+  }
+}
+
+.swiper {
+  margin-top: 80px;
+  background: transparent;
+}
+
+.swiper-slide {
+ 
+display: flex !important;
+align-items: center;
+}
+
+.swiper-slide > div:last-child{
+  width: 950px;
+  margin: 0 auto;
+}
+.swiper-slide > div:first-child{
+  position: absolute;
+  left: 19%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 680px;
+}
+.swiper-slide img {
+  border-radius: 20px;
+align-items: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+/* Ocultar las flechas originales de Swiper para siempre */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
+}
+
+/* Ocultar también los pseudo-elementos (donde Swiper dibuja el icono azul) */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Estilo base compartido para ambos botones */
+.nav-btn {
+ /* Posición (igual que tenías) */
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 50;
+  
+  /* ESTILO NEÓN */
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.2); /* Fondo muy sutil */
+  border: 2px solid #00bfff;       /* Borde Cian Eléctrico */
+  border-radius: 50%;
+  color: #00bfff;                  /* El icono también azul */
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4); /* Resplandor suave */
+  
+  /* Centrado */
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Posición específica IZQUIERDA */
+.nav-btn-prev {
+  right: 30px;
 }
+
+/* Posición específica DERECHA */
+.nav-btn-next {
+  top: 250px;
+  right: 30px;
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.nav-btn:hover {
+  background: linear-gradient(135deg, #4615f5, #00c6ff);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.8);
+  transform: translateY(-50%) scale(1.1);
+  
+}
+
+

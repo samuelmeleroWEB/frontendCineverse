@@ -1,0 +1,417 @@
+.promotions {
+  min-height: 100vh;
+  padding: 3rem 2rem 4rem;
+  background: #4a31a3;
+background: linear-gradient(0deg,rgba(74, 49, 163, 0.88) 0%, rgba(71, 40, 158, 1) 42%, rgba(24, 27, 31, 1) 96%, rgba(24, 27, 31, 1) 98%);
+  color: #ffffff;
+    margin-top: 90px;
+}
+
+/* SECCIONES GENERALES */
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section {
+  margin: 0 auto 3.5rem;
+  max-width: 1100px;
+}
+
+.titulo {
+  
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
+ background: linear-gradient(60deg,rgb(47, 191, 248) 10%, rgb(58, 32, 204) 30%, rgb(179, 146, 255) 87%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitulo {
+  font-size: 0.81rem;
+  color: #b0b0b0;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #e4e4e4;
+}
+
+.sectionText {
+  font-size: 0.81rem;
+  color: #bfbfbf;
+  margin-bottom: 1.8rem;
+}
+
+/* GRID PROMOS DESTACADAS */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #121222;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 186, 255, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 186, 255, 0.4);
+}
+
+.img {
+  width: 100%;
+  height: 310px;   /* o 280px */
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  color: #00baff;
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #d0d0d0;
+  padding: 0 1.1rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* BOTONES */
+
+.btn,
+.btnPrimary {
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  margin-top: 1rem;
+  background: transparent;
+  color: #00c6ff;
+  border: 1px solid rgba(0, 198, 255, 0.6);
+}
+
+.btn:hover {
+  background: rgba(0, 198, 255, 0.1);
+  box-shadow: 0 0 12px rgba(0, 198, 255, 0.5);
+}
+
+.btnPrimary {
+  margin-top: 1.3rem;
+  background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%);
+  color: #ffffff;
+}
+
+.btnPrimary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+}
+
+/* =============================== */
+/* CLUB CINEVERSE SECTION       */
+/* =============================== */
+
+.club {
+  background: radial-gradient(circle at top, rgba(0, 186, 255, 0.18), transparent 55%);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* contenedor principal */
+.clubContent {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* columna izquierda */
+.clubLeft {
+  flex: 1 1 0;
+  color: #e4e4e4;
+}
+
+/* columna derecha: tarjeta */
+.clubRight {
+  flex: 0 0 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* etiqueta "nuevo" */
+.clubTag {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(0, 198, 255, 0.15);
+  color: #00c6ff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+}
+
+/* lista de beneficios */
+.clubList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  color: #dcdcdc;
+  font-size: 0.95rem;
+}
+
+.clubList li {
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.clubList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #00c6ff;
+}
+
+/* botón principal */
+.btnPrimary {
+  margin-top: 1.3rem;
+  background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btnPrimary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+}
+
+/* texto pequeño */
+.smallText {
+  font-size: 0.8rem;
+  color: #a7a7a7;
+  margin-top: 0.5rem;
+}
+
+/* estadísticas */
+.clubStats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.clubStat {
+  background: rgba(4, 7, 30, 0.85);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(0, 198, 255, 0.3);
+  text-align: left;
+}
+
+.clubStatNumber {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00c6ff;
+}
+
+.clubStatLabel {
+  font-size: 0.85rem;
+  color: #c8c8c8;
+}
+
+/* tarjeta del club */
+
+.clubCard {
+  width: 100%;
+  max-width: 330px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 198, 255, 0.35);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.clubCard:hover {
+  transform: rotateY(10deg) scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 198, 255, 0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .clubContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .clubLeft {
+    width: 100%;
+  }
+
+  .clubRight {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .clubStats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .clubStat {
+    flex: 1 1 120px;
+    text-align: center;
+  }
+}
+
+
+
+/* SUSCRIPCIÓN */
+
+.subscribe {
+  text-align: center;
+}
+
+.subscribeForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.subscribeInput {
+  min-width: 260px;
+  max-width: 360px;
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 198, 255, 0.4);
+  background: rgba(5, 8, 30, 0.95);
+  color: #ffffff;
+  outline: none;
+}
+
+.subscribeInput::placeholder {
+  color: #8f8f8f;
+}
+
+.subscribeInput:focus {
+  box-shadow: 0 0 12px rgba(0, 198, 255, 0.6);
+}
+
+.smallText {
+  font-size: 0.8rem;
+  color: #a7a7a7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .promotions {
+    padding: 2.5rem 1.3rem 3rem;
+  }
+
+  .titulo {
+    font-size: 2.1rem;
+  }
+
+  .clubContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .clubStats {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .clubStat {
+    flex: 1 1 120px;
+    text-align: center;
+  }
+}
+.overlayPromo {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.767);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modalPromo {
+  font-size: 1.25rem;
+  background: linear-gradient(0deg,rgba(10, 136, 199, 1) 0%, rgba(108, 49, 212, 1) 100%);
+  color: #e5e7eb;
+  padding: 50px;
+  border-radius: 20px;
+  width: 600px;
+  height: 500px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.modalPromo h2 {
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+.modalPromo p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.modalPromo ul {
+  margin-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.closeBtnPromo {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
