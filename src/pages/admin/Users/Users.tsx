@@ -1,22 +1,20 @@
-
 import { useEffect, useState } from "react";
 import styles from "./Users.module.css";
 import { getUsers } from "../../../services/users.services";
 
-
-
 export const Users = () => {
-    const[users,setUsers]=useState([])
-    async function obtenerUsers(){
-        const response= await getUsers()
-        console.log(response)
-        setUsers(response)
-        
-    }
-    useEffect(()=>{
-        obtenerUsers()
+  // useState para almacenar usuarios
+  const [users, setUsers] = useState([]);
+  async function obtenerUsers() {
+    const response = await getUsers();
+    setUsers(response);
+  }
 
-    },[])
+  useEffect(() => {
+    obtenerUsers();
+  }, []);
+
+  
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>Usuarios</h2>
@@ -31,7 +29,7 @@ export const Users = () => {
               <th></th>
             </tr>
           </thead>
-          
+
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>

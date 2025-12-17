@@ -17,9 +17,6 @@ type Movie = {
 export function MvpMovies() {
   const navigate = useNavigate();
 
-  // real  de editar película
-  const EDIT_MOVIE_ROUTE = "/admin/movies/edit";
-
   const [allMovies, setAllMovies] = useState<Movie[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);

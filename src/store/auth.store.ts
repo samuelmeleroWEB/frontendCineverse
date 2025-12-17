@@ -13,9 +13,9 @@ export interface User {
 
 export type AuthStatus = "idle" | "loading" | "authenticated" | "error";
 
-// NUEVO: tipo para el token decodificado
+// tipo para el token decodificado
 interface DecodedToken {
-  exp: number; // expiry en segundos desde 1970
+  exp: number; // tiempo expiración
 }
 
 export interface AuthState {
@@ -24,13 +24,15 @@ export interface AuthState {
   status: AuthStatus;
   error: string | null;
 
-  login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string) => Promise<void>;
-  logout: () => void;
+  login: (email: string, password: string) => Promise<void>; // ponemos void porque devuelve una promesa vacía
+  register: (email: string, password: string) => Promise<void>; // ponemos void porque devuelve una promesa vacía
+  logout: () => void; // ponemos void porque no devuelve nada
 
-  //  NUEVO
-  checkTokenExpiration: () => void;
+  checkTokenExpiration: () => void; // ponemos void porque no devuelve nada
+
 }
+
+
 
 // === Store ===
 export const useAuthStore = create<AuthState>()(

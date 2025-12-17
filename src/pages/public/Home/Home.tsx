@@ -13,6 +13,11 @@ import {
   getMvpMovies,
 } from "../../../services/movies.services";
 
+/*
+ Agrupa una lista de sesiones por película, devolviendo un array donde cada elemento contiene:
+- la película
+- todas sus sesiones asociadas
+*/
 function groupSessionsByMovie(sessions: any[]) {
   const map: Record<
     string,

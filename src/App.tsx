@@ -11,6 +11,9 @@ function App() {
     <>
       {!isAdminRoute && <Navbar />}
 
+      {
+        // usamos el operador ternario para mostrar un contenido u otro, dependiendo de si el usuario está en una ruta de administración o no
+      }
       {!isAdminRoute ? (
         <main className="app-content">
           <AppRoutes />{" "}

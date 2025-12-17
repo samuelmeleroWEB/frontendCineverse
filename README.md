@@ -113,6 +113,12 @@ Funciones disponibles:
 
 ---
 
+## 📌 Notas finales
+
+Este repositorio depende del backend de CineVerse, que debe estar ejecutándose para que la aplicación funcione correctamente.
+
+Algunas funcionalidades están en desarrollo o no implementadas intencionadamente (newsletter, trailers, bloqueo de usuarios).
+
 ## Inicialización del proyecto
 
 ### Requisitos
@@ -135,7 +141,7 @@ Funciones disponibles:
    npm install
    ```
 
-3. **Run Development Server**
+3. **Ejecutar servidor de desarrollo**
    ```bash
    npm run dev
    ```
@@ -154,3 +160,11 @@ src/
 ├── store/           # Zustand
 ├── main.tsx
 └── App.tsx
+ ```
+## 📊 Diagramas
+
+### Diagrama de flujo
+![Diagrama de flujo](docs/diagramadeflujo.png)
+
+### Diagrama de casos de uso
+![Diagrama de casos de uso](docs/casosdeusovisitante.png)
