@@ -437,10 +437,17 @@
 /* =========================================================
    RESPONSIVE
 ========================================================= */
+@media (max-width: 1300px) {
+.navLinks {
+  
+  margin-left: auto;
+}
+}
 @media (max-width: 768px) {
   .navLinks {
     display: none;
   }
+  
 
   .actions {
     display: none;

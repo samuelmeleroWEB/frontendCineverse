@@ -68,3 +68,8 @@
   border-color: #2563eb;
 }
 
+@media (max-width: 768px) {
+.dayButton {
+  min-width: auto;
+}
+}

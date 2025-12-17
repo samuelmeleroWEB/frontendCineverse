@@ -39,12 +39,12 @@ body, p, span {
   padding-top: 42px;
 }
 
-/* Si en móvil el navbar es más alto puedes ajustar con media query */
 @media (max-width: 600px) {
   .app-content {
     padding-top: 80px;
   }
 }
+
 
 .swiper {
   margin-top: 80px;
@@ -77,7 +77,7 @@ align-items: center;
   
 }
 
-/* Ocultar las flechas originales de Swiper para siempre */
+/* Ocultar las flechas originales de Swiper */
 .swiper-button-next,
 .swiper-button-prev {
     display: none !important;
@@ -92,7 +92,6 @@ align-items: center;
 
 /* Estilo base compartido para ambos botones */
 .nav-btn {
- /* Posición (igual que tenías) */
   position: absolute;
   top: 60%;
   transform: translateY(-50%);
@@ -135,4 +134,17 @@ align-items: center;
   
 }
 
-
+@media (max-width: 960px) {
+  .swiper .swiper-nav-btns{
+  display: none;
+}
+.swiper-slide > div:last-child{
+  height: 300px;
+}
+.swiper-slide > div:first-child{
+  left: 1rem;
+}
+.swiper {
+  margin-top: 0;
+}
+}
