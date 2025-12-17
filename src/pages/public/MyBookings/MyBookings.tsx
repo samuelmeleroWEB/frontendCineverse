@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMyBookings, type Booking } from "../../../services/booking.services";
 import styles from "./MyBookings.module.css";
-import loaderStyles from "../../components/DayCarousel/DayCarousel.module.css";
+import loaderStyles from "../../../components/DayCarousel/DayCarousel.module.css";
 
 export default function MyBookings() {
   const [bookings, setBookings] = useState<Booking[]>([]);
