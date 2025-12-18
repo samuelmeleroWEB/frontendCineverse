@@ -6,15 +6,17 @@ import { getRooms } from "../../../services/rooms.services";
 import { createSession, getSessionsByMovie } from "../../../services/sessions.services";
 
 export function MovieSessions() {
-  const { id: movieId } = useParams<{ id: string }>();
+  const { id: movieId } = useParams<{ id: string }>(); // obtenemos id desde la ruta y asi sabe a que pelicula le estamos creando sesiones
 
   const [movie, setMovie] = useState<any>(null);
   const [rooms, setRooms] = useState<any[]>([]);
   const [sessions, setSessions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
+  const [saving, setSaving] = useState(false); // creacion de sesiones en progreso
   const [message, setMessage] = useState<string | null>(null);
 
+
+  // estado del form
   const [form, setForm] = useState({
     roomId: "",
     dateFrom: "",
@@ -28,7 +30,7 @@ export function MovieSessions() {
       if (!movieId) return;
       try {
         setLoading(true);
-        const [movieData, roomsData, sessionsData] = await Promise.all([
+        const [movieData, roomsData, sessionsData] = await Promise.all([ // llamamos a los 3 endpoints a la vez
           getMovieById(movieId),
           getRooms(),
           getSessionsByMovie(movieId),
@@ -47,11 +49,12 @@ export function MovieSessions() {
     loadData();
   }, [movieId]);
 
+  // se ejecuta cuando cambamos un imput o select
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) {
     const { name, value } = e.target;
-    setForm((prev) => ({
+    setForm((prev) => ({ // mantenemos el anterior
       ...prev,
       [name]:
         name === "repeatDays" ? Number(value) : name === "basePrice" ? value : value,
@@ -78,10 +81,10 @@ export function MovieSessions() {
 
       const created: any[] = [];
 
-      for (let i = 0; i < repeatDays; i++) {
+      for (let i = 0; i < repeatDays; i++) { // crear varias sesiones por varios dias
         const date = new Date(baseDate);
-        date.setDate(baseDate.getDate() + i);
-        date.setHours(Number(hour), Number(minute), 0, 0);
+        date.setDate(baseDate.getDate() + i); // suma días
+        date.setHours(Number(hour), Number(minute), 0, 0); // hora exacta
 
         const startTime = date.toISOString();
 
@@ -92,11 +95,11 @@ export function MovieSessions() {
           basePrice: Number(basePrice),
         });
 
-        created.push(session);
+        created.push(session); // guardamos las sesiones creadas
       }
 
       setMessage(`✅ Se han creado ${created.length} sesiones`);
-      setSessions((prev) => [...prev, ...created]);
+      setSessions((prev) => [...prev, ...created]); // añadimos las nuevas
     } catch (err: any) {
       console.error(err);
       setMessage(err.message || "❌ Error al crear sesiones");

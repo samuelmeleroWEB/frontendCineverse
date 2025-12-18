@@ -4,13 +4,16 @@ import { createMovie, updateMovie } from "../../../services/movies.services";
 import { uploadImage } from "../../../services/uploadservices";
 import styles from "./FormMovies.module.css";
 
-type ImageMode = "url" | "file";
+type ImageMode = "url" | "file"; // url externa o archivo
 
 export function FormMovies() {
   const location = useLocation();
   const movieToEdit = (location.state as any)?.movie;
+// Un solo componente para crear y editar
 
-  const [form, setForm] = useState({
+
+
+  const [form, setForm] = useState({ // guardamos los campos de la pelicula
     _id: "",
     title: "",
     description: "",
@@ -22,19 +25,19 @@ export function FormMovies() {
     mvpImageUrl: "",
   });
 
-  // PÓSTER (vertical)
+  // PÓSTER (vertical) // obligatorio
   const [posterMode, setPosterMode] = useState<ImageMode>("url");
   const [posterFile, setPosterFile] = useState<File | null>(null);
 
-  // IMAGEN MVP (horizontal)
+  // IMAGEN MVP (horizontal) // opcional
   const [mvpMode, setMvpMode] = useState<ImageMode>("url");
   const [mvpFile, setMvpFile] = useState<File | null>(null);
-
+// loaders
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-
+// editar pelicula
   useEffect(() => {
-    if (movieToEdit) {
+    if (movieToEdit) { // si existe
       setForm({
         _id: movieToEdit._id,
         title: movieToEdit.title || "",
@@ -54,13 +57,17 @@ export function FormMovies() {
     }
   }, [movieToEdit]);
 
+
+
+
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+    //prev es el estado anterior del form, ...prev hacemos una copia,  lo hacemos para no borrar el formulario y que solo modifiquemos el valor que queramos del form
   }
-
+// Guardan el arvhivo seleccionado
   function handlePosterFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0] ?? null;
     setPosterFile(file);

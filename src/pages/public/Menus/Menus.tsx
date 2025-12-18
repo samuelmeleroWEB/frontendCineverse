@@ -37,6 +37,7 @@ const MENUS = [
 ];
 
 export default function Menus() {
+  // funcion para añadir productos
   const addItem = useCartStore((s) => s.addItem);
 
   const handleAddMenu = (menu: (typeof MENUS)[number]) => {

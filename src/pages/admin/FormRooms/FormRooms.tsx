@@ -6,23 +6,24 @@ export function FormRooms() {
   const [form, setForm] = useState({
  
     name: "",
-    capacity: 100,
+    capacity: 100, // por defecto 
   });
 
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false); // desactiva el boton y mostramos loading
+  const [message, setMessage] = useState<string | null>(null); // mensaje de exito u error
 
+  // se ejecuta cuando escribamos, name es el campo que cambiamos, value el valor escrito
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value })); // mantenemos lo anterior
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    setMessage(null);
+    setMessage(null); // limpiamos mensajes
 
     try {
      
@@ -32,10 +33,10 @@ export function FormRooms() {
       });
       setMessage("✅ Sala añadida correctamente");
 
-      setForm({
+      setForm({ // limpiamos el form
         
         name: "",
-        capacity: 100,
+        capacity: 100, 
       });
     } catch (err: any) {
       console.error(err);

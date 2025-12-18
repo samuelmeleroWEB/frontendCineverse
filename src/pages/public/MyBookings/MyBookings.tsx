@@ -12,20 +12,21 @@ export default function MyBookings() {
     (async () => {
       try {
         const data = await getMyBookings();
-        console.log("BOOKINGS DESDE BACK:", data);
+        // console.log("BOOKINGS DESDE BACK:", data);
 
         const now = new Date();
 
         //   dejamos reservas cuya sesión aún no ha pasado
+        // si data existe usa data, si no usa []
         const upcoming = (data ?? [])
-          .filter((b) => {
-            if (!b.sessionDateTime) return false;
-            const sessionDate = new Date(b.sessionDateTime);
-            return sessionDate.getTime() >= now.getTime();
+          .filter((b) => { // solo reservas futuras
+            if (!b.sessionDateTime) return false; // recorremos cada reserva
+            const sessionDate = new Date(b.sessionDateTime); // convierte la fecha en un objeto date
+            return sessionDate.getTime() >= now.getTime(); // si es mayor que la fecha actual se mantiene, si no se elimina
           })
-          .sort(
+          .sort( // ordenar
             (a, b) =>
-              new Date(a.sessionDateTime ?? 0).getTime() -
+              new Date(a.sessionDateTime ?? 0).getTime() - // si la ficha existe se convierte, sino usa 0 para no romper
               new Date(b.sessionDateTime ?? 0).getTime()
           );
 

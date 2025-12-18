@@ -133,7 +133,6 @@ export function Home() {
       setIsLoadingSessions(false);
     }
   }
-
   useEffect(() => {
     getSessions();
   }, [selectedDayId, days]);

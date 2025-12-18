@@ -1,18 +1,19 @@
 
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../../store/auth.store";
+import { useAuthStore } from "../../../store/auth.store"; // para saber que user esta logeado
 import styles from "./Layout.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 
 export const Layout = () => {
   const { user, logout } = useAuthStore();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // permite cambiar de ruta sin hacer link
 
+  // garantiza que admin sale del panel de admin
   const handleLogout = () => {
     logout();
     navigate("/");
   };
-
+// permite volver a la web publica sin cerrar sesion
   const handleBackToWeb = () => {
     navigate("/");
   };

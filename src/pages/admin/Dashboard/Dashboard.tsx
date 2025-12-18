@@ -1,21 +1,23 @@
-
-
 import { useEffect, useState } from "react";
-import { getDashboardData, type DashboardData } from "../../../services/dashboard.services";
+import {
+  getDashboardData,
+  type DashboardData,
+} from "../../../services/dashboard.services";
 import estilos from "./Dashboard.module.css";
 
 export function Dashboard() {
   const [data, setData] = useState<DashboardData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // evitamos pantallazos en blanco
 
   useEffect(() => {
     async function load() {
       try {
-        const respuesta = await getDashboardData();
-        setData(respuesta);
+        const respuesta = await getDashboardData(); // llamada al backend
+        setData(respuesta); // guardamos la respuesta en el estado, para renderizar el contenido real
       } catch (err) {
         console.error("Error cargando dashboard", err);
       } finally {
+        // para evitar loaders infinitos
         setLoading(false);
       }
     }
@@ -28,7 +30,9 @@ export function Dashboard() {
   }
 
   if (!data) {
-    return <div className={estilos.dashboard}>No se pudieron cargar los datos.</div>;
+    return (
+      <div className={estilos.dashboard}>No se pudieron cargar los datos.</div>
+    );
   }
 
   const { stats, nextSessions, occupancyByRoom } = data;
@@ -43,11 +47,9 @@ export function Dashboard() {
             Resumen de lo que está pasando hoy en tu cine.
           </p>
         </div>
-
-       
       </header>
 
-       {/* MÉTRICAS RÁPIDAS */}
+      {/* MÉTRICAS RÁPIDAS */}
       <section className={estilos.statsGrid}>
         <article className={estilos.statCard}>
           <p className={estilos.statLabel}>Películas activas</p>
@@ -139,8 +141,8 @@ export function Dashboard() {
           </ul>
 
           <p className={estilos.cardHint}>
-            Usa estos datos para decidir en qué salas reforzar sesiones
-            en horas punta.
+            Usa estos datos para decidir en qué salas reforzar sesiones en horas
+            punta.
           </p>
         </article>
       </section>

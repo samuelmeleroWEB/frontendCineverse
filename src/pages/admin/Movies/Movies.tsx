@@ -31,11 +31,12 @@ export const Movies = () => {
       setLoading(false);
     }
   }
-
   useEffect(() => {
     loadMovies();
   }, []);
 
+
+  
   function handleAdd() {
     // formulario vacío
     navigate("/admin/movies/new");

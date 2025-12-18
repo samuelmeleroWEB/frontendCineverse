@@ -51,22 +51,22 @@ export default function Navbar() {
   useEffect(() => {
     setPanelMode(null);
   }, [location.pathname]);
-
-  const resetAuthFields = useCallback(() => {
+// usamos callback para evitar renders inncesarios
+  const resetAuthFields = useCallback(() => { //limpia los campos del formulario
     setEmail("");
     setPassword("");
   }, []);
 
-  const closeAuthModal = useCallback(() => {
+  const closeAuthModal = useCallback(() => { // cerramos el modal login/registro
     setAuthMode(null);
     resetAuthFields();
   }, [resetAuthFields]);
 
-  const openAuthModal = useCallback((mode: AuthMode) => {
+  const openAuthModal = useCallback((mode: AuthMode) => { // decide si es login o register
     setAuthMode(mode);
   }, []);
 
-  const validateAuth = useCallback(() => {
+  const validateAuth = useCallback(() => { //validamos el formulario antes de enviar
     if (!email.trim()) {
       alert("El correo electrónico es obligatorio.");
       return false;
@@ -78,7 +78,7 @@ export default function Navbar() {
     return true;
   }, [email, password]);
 
-  const handleAuthSubmit = useCallback(async () => {
+  const handleAuthSubmit = useCallback(async () => { //submit principal
     if (!authMode) return;
     if (!validateAuth()) return;
 

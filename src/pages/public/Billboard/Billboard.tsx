@@ -18,7 +18,7 @@ export default function Billboard() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // 🔍 estados del buscador
+  // estados del buscador
   const [inputTerm, setInputTerm] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 

@@ -16,7 +16,6 @@ type Movie = {
 
 export function MvpMovies() {
   const navigate = useNavigate();
-
   const [allMovies, setAllMovies] = useState<Movie[]>([]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,16 +47,19 @@ export function MvpMovies() {
     load();
   }, []);
 
+  // para marcar o desmarcar mvp
   const toggleMovie = (id: string) => {
-    setSelectedIds((prev) =>
+    setSelectedIds((prev) => 
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
+    // si ya esta seleccionada se quita, si no se añade
+  );
   };
-
+// navegamos al form de pelicula para editarlo
   const goEditBanner = (movie: Movie) => {
     navigate("/admin/movies/edit", { state: { movie } });
   };
 
+  //  se ejecuta al guardar cambios
   const handleSave = async () => {
     try {
       setSaving(true);
@@ -69,8 +71,10 @@ export function MvpMovies() {
     }
   };
 
-  //  Calculamos SIN hooks (así no rompe el orden)
+  //  Calculamos SIN hooks (así no rompemos el orden)
+  // Peliculas actualmente mvp
   const currentMvp = allMovies.filter((m) => selectedIds.includes(m._id));
+  // Peliculas no MVP
   const otherMovies = allMovies.filter((m) => !selectedIds.includes(m._id));
 
   if (loading) {

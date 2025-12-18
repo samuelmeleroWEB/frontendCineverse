@@ -1,27 +1,28 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from "zustand"; //crear store
+import { persist } from "zustand/middleware"; //guardamos el estado en loccalstorage
 import { loginUsuarios, registrarUsuarios } from "../services/auth.services";
-import { jwtDecode } from "jwt-decode"; 
+import { jwtDecode } from "jwt-decode"; //permite leer el jwt sin validarlo
 
 // === Tipos ===
 export interface User {
+  // usuario autenticado
   id: string;
   email: string;
   name?: string;
   role?: string;
 }
-
+// controlamos el estado, loaders
 export type AuthStatus = "idle" | "loading" | "authenticated" | "error";
 
 // tipo para el token decodificado
 interface DecodedToken {
-  exp: number; // tiempo expiración
+  exp: number; // tiempo expiración en segundos por defecto
 }
-
+// estado global
 export interface AuthState {
   user: User | null;
   token: string | null;
-  status: AuthStatus;
+  status: AuthStatus; //estado actual del login
   error: string | null;
 
   login: (email: string, password: string) => Promise<void>; // ponemos void porque devuelve una promesa vacía
@@ -29,10 +30,7 @@ export interface AuthState {
   logout: () => void; // ponemos void porque no devuelve nada
 
   checkTokenExpiration: () => void; // ponemos void porque no devuelve nada
-
 }
-
-
 
 // === Store ===
 export const useAuthStore = create<AuthState>()(
@@ -45,17 +43,18 @@ export const useAuthStore = create<AuthState>()(
 
       // --- LOGIN ---
       login: async (email: string, password: string) => {
-        set({ status: "loading", error: null });
+        set({ status: "loading", error: null }); // estado en loading
 
         try {
+          //llamamos al backend
           const respuesta = await loginUsuarios(email, password);
-
+          // esto es lo que recibimos (el token y el usuario)
           const { token, user } = respuesta;
-
+// guardamos todo en el storage
           set({
             user,
             token,
-            status: "authenticated",
+            status: "authenticated", // cambiamos el estado
             error: null,
           });
         } catch (err: any) {
@@ -71,7 +70,7 @@ export const useAuthStore = create<AuthState>()(
       register: async (email: string, password: string) => {
         set({ status: "loading", error: null });
 
-        try {
+        try {// lo registra y logea automaticamente
           await registrarUsuarios(email, password);
           await get().login(email, password);
         } catch (err: any) {
@@ -82,6 +81,7 @@ export const useAuthStore = create<AuthState>()(
           throw err;
         }
       },
+      // limpia todo el estado, cuando el token caduca o al cerrar sesion, el persist también borra
 
       // --- LOGOUT ---
       logout: () => {
@@ -96,11 +96,11 @@ export const useAuthStore = create<AuthState>()(
       // --- COMPROBAR SI EL TOKEN HA CADUCADO ---
       checkTokenExpiration: () => {
         const token = get().token;
-        if (!token) return;
+        if (!token) return; // si no hay token no hace nada
 
         try {
-          const decoded = jwtDecode<DecodedToken>(token);
-          const nowInSeconds = Date.now() / 1000;
+          const decoded = jwtDecode<DecodedToken>(token); // decodificamos el jwt
+          const nowInSeconds = Date.now() / 1000; //obtenemos el tiempo en sec
 
           if (decoded.exp < nowInSeconds) {
             // Token caducado → cerramos sesión
@@ -113,7 +113,7 @@ export const useAuthStore = create<AuthState>()(
       },
     }),
     {
-      name: "cineverse-auth", // clave en localStorage
+      name: "cineverse-auth", // persist // guarda el estado en localstorage y permite mantener sesion tras refrescar
     }
   )
 );

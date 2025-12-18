@@ -34,6 +34,7 @@ export default function  Rooms () {
     loadRooms();
   }, []);
 
+  // Añadir
   function handleAdd() {
     // formulario vacío (crear)
     navigate("/admin/rooms/new");
