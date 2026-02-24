@@ -1,6 +1,6 @@
 import { apiClient } from "./apiClient";
-
+const BASE_URL = import.meta.env.VITE_API_URL;
 export  function getUsers() {
- return  apiClient(`http://localhost:4000/users`);
+ return  apiClient(`${BASE_URL}/users`);
   
 }

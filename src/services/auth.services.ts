@@ -1,5 +1,5 @@
 export  async function  registrarUsuarios(email:string,password:string){
-const res = await fetch(`http://localhost:4000/auth/register`,{
+const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`,{
     method: 'post',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({email,password})
@@ -8,7 +8,7 @@ const res = await fetch(`http://localhost:4000/auth/register`,{
   return res.json(); 
 }
 export  async function  loginUsuarios(email:string,password:string){
-const res = await fetch(`http://localhost:4000/auth/login`,{
+const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`,{
     method: 'post',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({email,password})

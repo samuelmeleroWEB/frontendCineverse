@@ -1,7 +1,7 @@
 import type { CartItem } from "../store/cart.store";
 import { apiClient } from "./apiClient";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 //  Nuevo tipo para los menús guardados en la reserva
 export interface BookingMenuItem {
