@@ -1,5 +1,5 @@
 
-import estilos from "./menus.module.css";
+import estilos from "./Menus.module.css";
 import { useCartStore } from "../../../store/cart.store";
 import toast from "react-hot-toast";
 

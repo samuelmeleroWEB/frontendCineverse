@@ -1,4 +1,4 @@
-import estilos from "./promotion.module.css";
+import estilos from "./Promotion.module.css";
 import  { useState } from "react";
 
 export function Promotion() {
