@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import estilos from "./home.module.css";
+import estilos from "./Home.module.css";
 import DayCarousel from "../../../components/DayCarousel/DayCarousel";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
