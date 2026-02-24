@@ -3,7 +3,7 @@ import { useAuthStore } from "../store/auth.store";
 export interface ApiClientOptions extends RequestInit {
   isFormData?: boolean;
 }
-// apiclient lo usamos cuando queremos llamar a servicios protegidos con un token(tipo mis reservas)
+
 export async function apiClient(
   url: string,
   options: ApiClientOptions = {}
@@ -12,13 +12,12 @@ export async function apiClient(
 
   const { isFormData, headers: optionHeaders, ...restOptions } = options;
 
-  // Construimos headers base
-  const headers: HeadersInit = {
-    ...(optionHeaders || {}),
+  // ✅ Cambiado de HeadersInit a Record<string, string>
+  const headers: Record<string, string> = {
+    ...(optionHeaders as Record<string, string> || {}),
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 
-  // Solo ponemos Content-Type JSON si NO es FormData
   if (!isFormData) {
     headers["Content-Type"] = "application/json";
   }
@@ -30,7 +29,6 @@ export async function apiClient(
 
   const response = await fetch(url, config);
 
-  // Si la API devuelve 401 → token caducado
   if (response.status === 401) {
     logout();
     throw new Error("Sesión expirada. Inicia sesión de nuevo.");
