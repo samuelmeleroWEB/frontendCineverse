@@ -68,7 +68,7 @@ function generateDays(count: number = 10): any[] {
     const date = new Date(
       today.getFullYear(),
       today.getMonth(),
-      today.getDate() + i
+      today.getDate() + i,
     );
 
     const year = date.getFullYear();
@@ -78,7 +78,7 @@ function generateDays(count: number = 10): any[] {
     const weekday = weekdayNames[date.getDay()]; // aqui nos da el día de la semana
     const monthLabel = monthNames[date.getMonth()]; // aqui nos da el nombre mes exacto
 
-    const label = i === 0 ? "Hoy" : `${weekday} ${day} ${monthLabel}`; // si i es igual a cero pondrá hoy 
+    const label = i === 0 ? "Hoy" : `${weekday} ${day} ${monthLabel}`; // si i es igual a cero pondrá hoy
 
     days.push({
       id: `d${i + 1}`,
@@ -234,9 +234,7 @@ export function Home() {
         {isLoadingSessions && (
           <div className={estilos.loaderWrapper}>
             <div className={estilos.loader}></div>
-            <p className={estilos.loaderText}>
-              Cargando sesiones de cine...
-            </p>
+            <p className={estilos.loaderText}>Cargando sesiones de cine...</p>
           </div>
         )}
 
@@ -287,23 +285,30 @@ export function Home() {
                   </div>
 
                   <div className={estilos.sessionsGrid}>
-                    {sessions.map((s: any) => (
-                      <button
-                        key={s._id}
-                        className={estilos.sessionButton}
-                        onClick={() => navigate(`/sessions/${s._id}`)}
-                      >
-                        <span className={estilos.sessionTime}>
-                          {new Date(s.startTime).toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
-                        </span>
-                        <span className={estilos.sessionRoom}>
-                          {s.room?.name ?? "Sala"}
-                        </span>
-                      </button>
-                    ))}
+                    {sessions.map((s: any) => {
+                      const isPast =
+                        new Date(s.startTime).getTime() < Date.now();
+                      return (
+                        <button
+                          key={s._id}
+                          className={`${estilos.sessionButton} ${isPast ? estilos.sessionPast : ""}`}
+                          onClick={() =>
+                            !isPast && navigate(`/sessions/${s._id}`)
+                          }
+                          disabled={isPast}
+                        >
+                          <span className={estilos.sessionTime}>
+                            {new Date(s.startTime).toLocaleTimeString([], {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
+                          </span>
+                          <span className={estilos.sessionRoom}>
+                            {s.room?.name ?? "Sala"}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               </article>

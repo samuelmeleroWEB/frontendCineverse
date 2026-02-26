@@ -655,3 +655,9 @@
   overflow: hidden;
   }
 }
+.sessionPast {
+  background: radial-gradient(circle at top left, #ff0000, #e01a1a);
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
